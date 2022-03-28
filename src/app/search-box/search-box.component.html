@@ -1,0 +1,25 @@
+<form autocomplete="off" action="/action_page.php">
+  <div class="autocomplete" style="width: 300px">
+    <input
+      id="myInput"
+      type="text"
+      name="myCountry"
+      placeholder="Country"
+      #input
+    />
+    <div id="myInputautocomplete-list" class="autocomplete-items">
+      <div *ngIf="loading">
+        <strong>Loading</strong>
+        <input type="hidden" value="Loading" />
+      </div>
+      <div *ngIf="inputTouched && !results.length">
+        <strong>Not Found</strong>
+        <input type="hidden" value="Not Found" />
+      </div>
+      <div *ngFor="let result of results">
+        <strong>{{result}}</strong>
+        <input type="hidden" value="{{result}}" />
+      </div>
+    </div>
+  </div>
+</form>
